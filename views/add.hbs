@@ -1,0 +1,19 @@
+<h1>Добавить новый курс</h1>
+
+<form action="/add_course" method="post">
+    <div class="input-field col s6">
+        <input type="text" name="title" id="nameCourse" required class="validate">
+        <label for="nameCourse">Название курса</label>
+    </div>
+    <div class="input-field col s6">
+        <input type="number" name="price" id="priceCourse" requiredclass="validate">
+        <label for="priceCourse">Цена курса курса</label>
+    </div>
+    <div class="input-field col s6">
+        <input type="text" name="img"  id="imgCourse" required class="validate">
+        <label for="imgCourse">URL картинки</label>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>
