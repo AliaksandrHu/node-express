@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const mongoose = require('mongoose')
 const exphb = require('express-handlebars')
 const app = express()
 
@@ -29,6 +30,18 @@ app.use('/card',cardRoutes)
 
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, 'localhost',()=>{
-    console.log(`Сервер запущен на порту ${PORT}...`)
-})
+async function start(){
+    try{
+        const url = "mongodb://localhost:27017/shop"
+        await mongoose.connect(url)
+        app.listen(PORT, 'localhost',()=>{
+            console.log(`Сервер запущен на порту ${PORT}...`)
+        })
+    } catch (e) {
+        console.log(e)
+    }
+
+}
+
+start()
+
